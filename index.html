@@ -4,7 +4,11 @@
 	
 	<script src="angular.min.js"></script>
 	<script src="app.js"></script>
-	<link rel="stylesheet" type="text/css" href="class.css">
+	<style type="text/css">
+		.error{
+			color: red;
+		}
+	</style>
 	<title>Shopping App</title>
 </head>
 <body>
@@ -20,7 +24,7 @@
 </div>
 <div ng-controller="ShoppingListBroughtController as broughtItemAdder">
 	<h3>Brought:</h3>
-	<div ng-if="broughtItemAdder.check()" >{{broughtItemAdder.emptyMessage}}</div>
+	<div ng-if="broughtItemAdder.check()" class="error">{{broughtItemAdder.emptyMessage}}</div>
 	<ol>
 		<li ng-repeat="item in broughtItemAdder.broughtitems">
 			Brought  {{item.quantity}} {{item.name}}
