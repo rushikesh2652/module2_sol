@@ -8,12 +8,16 @@
 		.error{
 			color: red;
 		}
+		.green{
+			color: green;
+		}
 	</style>
 	<title>Shopping App</title>
 </head>
 <body>
 <div ng-controller="ShoppingListToBuyController as itemAdder">
 	<h3>To Buy :</h3>
+	<div ng-if="itemAdder.checkIfBrought()" class="green">Everything is brought!</div>
 	<ol>
 		<li ng-repeat="item in itemAdder.tobuyitems">
 			Buy {{item.quantity}} {{item.name}}
@@ -24,7 +28,7 @@
 </div>
 <div ng-controller="ShoppingListBroughtController as broughtItemAdder">
 	<h3>Already Brought:</h3>
-	<div ng-if="broughtItemAdder.check()" class="error">{{broughtItemAdder.emptyMessage}}</div>
+	<div ng-if="broughtItemAdder.check()" class="error">Nothing brought yet!</div>
 	<ol>
 		<li ng-repeat="item in broughtItemAdder.broughtitems">
 			Brought  {{item.quantity}} {{item.name}}

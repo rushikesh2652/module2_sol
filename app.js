@@ -1,5 +1,5 @@
 (function(){
-	
+
 	angular.module('ShoppingListApp',[])
 	.controller('ShoppingListToBuyController',ShoppingListToBuyController)
 	.controller('ShoppingListBroughtController',ShoppingListBroughtController)
@@ -8,9 +8,16 @@
 	ShoppingListToBuyController.$inject=['ShoppingListService'];
 	function ShoppingListToBuyController(ShoppingListService){
 		var itemAdder=this;
+		itemAdder.Message="To Buy :"
 		 itemAdder.tobuyitems=ShoppingListService.getToBuyItems();
 		 itemAdder.removeItem=function(indexItem){
 		 	ShoppingListService.removeBroughtItem(indexItem);
+		 }
+
+		 itemAdder.checkIfBrought=function(){
+		 	
+		 	return ShoppingListService.checkIfCompleted();
+		
 		 }
 		
 
@@ -74,6 +81,18 @@
 
 		 service.checkIfEmpty=function(){
 		 	if(broughtitems.length== 0){
+		 	
+		 		return true;
+		 	}
+		 	else
+		 	{
+		 		return false;
+		 	}
+		 	
+		 }
+
+		 service.checkIfCompleted=function(){
+		 	if(tobuyitems.length== 0){
 		 	
 		 		return true;
 		 	}
