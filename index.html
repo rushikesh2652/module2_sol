@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Shopping App</title>
-	<script src="app.js"></script>
+<html ng-app="ShoppingListApp">
+<head >
+	
 	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="class.css">
+	<title>Shopping App</title>
 </head>
 <body>
+<div ng-controller="ShoppingListToBuyController as itemAdder">
+	<h3>To Buy :</h3>
+	<ol>
+		<li ng-repeat="item in itemAdder.tobuyitems">
+			Buy {{item.quantity}} {{item.name}}
+			<button ng-click="itemAdder.removeItem($index)">Brought</button>
+		</li>
+	</ol>
 
+</div>
+<div ng-controller="ShoppingListBroughtController as broughtItemAdder">
+	<h3>Brought:</h3>
+	<div ng-if="broughtItemAdder.check()" class="error">{{broughtItemAdder.emptyMessage}}</div>
+	<ol>
+		<li ng-repeat="item in broughtItemAdder.broughtitems">
+			Brought  {{item.quantity}} {{item.name}}
+		</li>
+	</ol>
+</div>
 </body>
 </html>
