@@ -23,11 +23,11 @@
 
 </div>
 <div ng-controller="ShoppingListBroughtController as broughtItemAdder">
-	<h3>Brought:</h3>
+	<h3>Already Brought:</h3>
 	<div ng-if="broughtItemAdder.check()" class="error">{{broughtItemAdder.emptyMessage}}</div>
 	<ol>
 		<li ng-repeat="item in broughtItemAdder.broughtitems">
-			Already Brought  {{item.quantity}} {{item.name}}
+			Brought  {{item.quantity}} {{item.name}}
 		</li>
 	</ol>
 </div>
