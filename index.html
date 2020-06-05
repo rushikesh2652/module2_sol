@@ -20,7 +20,7 @@
 </div>
 <div ng-controller="ShoppingListBroughtController as broughtItemAdder">
 	<h3>Brought:</h3>
-	<div ng-if="broughtItemAdder.check()" class="error">{{broughtItemAdder.emptyMessage}}</div>
+	<div ng-if="broughtItemAdder.check()" >{{broughtItemAdder.emptyMessage}}</div>
 	<ol>
 		<li ng-repeat="item in broughtItemAdder.broughtitems">
 			Brought  {{item.quantity}} {{item.name}}
